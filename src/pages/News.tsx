@@ -46,7 +46,7 @@ export function News() {
   const [custom, setCustom] = useState<(typeof news)[number][]>(() => {
     try {
       return JSON.parse(
-        localStorage.getItem("athletix_custom_articles") || "[]",
+        localStorage.getItem("super-sapiens_custom_articles") || "[]",
       );
     } catch {
       return [];
@@ -64,7 +64,7 @@ export function News() {
       title: v.title.trim(),
       cat: v.cat,
       desc: v.body.trim().slice(0, 140),
-      source: "ATHLETIX India Contributor",
+      source: "SUPER SAPIENS India Contributor",
       date: new Date().toISOString().slice(0, 10),
       mins: Math.max(1, Math.ceil(v.body.trim().split(/\s+/).length / 200)),
       athleteId: athletes[0].id,
@@ -72,7 +72,7 @@ export function News() {
     };
     const next = [article, ...custom];
     setCustom(next);
-    localStorage.setItem("athletix_custom_articles", JSON.stringify(next));
+    localStorage.setItem("super-sapiens_custom_articles", JSON.stringify(next));
     setOpen(false);
     ev.currentTarget.reset();
   };
@@ -150,7 +150,7 @@ export function Article() {
   let custom: (typeof news)[number][] = [];
   try {
     custom = JSON.parse(
-      localStorage.getItem("athletix_custom_articles") || "[]",
+      localStorage.getItem("super-sapiens_custom_articles") || "[]",
     );
   } catch {}
   const n = [...custom, ...news].find((x) => x.id === id);

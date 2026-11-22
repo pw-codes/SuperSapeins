@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   useContext,
   useEffect,
@@ -44,7 +44,10 @@ export const useStore = (): {
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [s, setS] = useState<S>(() => {
     try {
-      return { ...D, ...JSON.parse(localStorage.getItem("athletix") || "{}") };
+      return {
+        ...D,
+        ...JSON.parse(localStorage.getItem("super-sapiens") || "{}"),
+      };
     } catch {
       return D;
     }
@@ -52,7 +55,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [toasts, setT] = useState<any[]>([]);
   useEffect(() => {
     try {
-      localStorage.setItem("athletix", JSON.stringify(s));
+      localStorage.setItem("super-sapiens", JSON.stringify(s));
     } catch {}
   }, [s]);
   const set = (p: Partial<S>) => setS((x) => ({ ...x, ...p }));

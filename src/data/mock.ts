@@ -112,7 +112,7 @@ export const athletes: Athlete[] = N.map((name, i) => {
     verified: i % 6 === 0,
     achievement: `${ACH[i % 6]} (demo)`,
     photo: "",
-    bio: `${name} is a fictional Indian athlete from ${STATES[i % STATES.length]}, created for the ATHLETIX prototype. Nothing here is a real record.`,
+    bio: `${name} is a fictional Indian athlete from ${STATES[i % STATES.length]}, created for the SUPER SAPIENS prototype. Nothing here is a real record.`,
   };
 });
 export const series = (seed: number, n = 90) => {
@@ -137,13 +137,13 @@ export const news: NewsArticle[] = Array.from({ length: 8 }, (_, i) => ({
   id: `n${i + 1}`,
   title: ARTICLE_TITLES[i],
   cat: SPORTS[i % SPORTS.length],
-  desc: "Fictional Indian sports news for the ATHLETIX prototype.",
-  source: "ATHLETIX India Desk",
+  desc: "Fictional Indian sports news for the SUPER SAPIENS prototype.",
+  source: "SUPER SAPIENS India Desk",
   date: `2026-11-${String(20 - i).padStart(2, "0")}`,
   mins: 3 + (i % 5),
   athleteId: `a${i * 3 + 1}`,
   body: [
-    "This is fictional demonstration content created for ATHLETIX. It does not describe real events, results or people.",
+    "This is fictional demonstration content created for SUPER SAPIENS. It does not describe real events, results or people.",
     "The story focuses on Indian grassroots programmes, structured coaching and the growing pathways available to young athletes across the country.",
     "Use these articles as layout previews only. For a live platform, replace this section with verified reporting and licensed Indian sports coverage.",
   ],
@@ -167,7 +167,7 @@ export const notifs = [
   ],
   ["Ishaan Reddy was added to trending", "1d ago"],
   ["Your weekly Indian sports digest is ready", "3d ago"],
-  ["Welcome to ATHLETIX India", "5d ago"],
+  ["Welcome to SUPER SAPIENS India", "5d ago"],
 ].map(([t, w], i) => ({ id: `x${i + 1}`, t, w }));
 export const formatINR = (n: number) =>
   `₹${n.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;

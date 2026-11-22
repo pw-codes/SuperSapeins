@@ -18,7 +18,7 @@ function Nav() {
           to="/"
           className="text-lg font-extrabold tracking-tight text-lime"
         >
-          ATHLETIX INDIA
+          SUPER SAPIENS INDIA
         </Link>
         <nav className="hidden gap-5 text-sm text-mute md:flex">
           {nav.map(([l, t]) => (
@@ -44,7 +44,7 @@ function Foot() {
     <footer className="mt-24 border-t border-line bg-bg2 py-10">
       <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-6 px-4 text-sm text-mute md:px-8">
         <div>
-          <p className="font-extrabold text-lime">ATHLETIX INDIA</p>
+          <p className="font-extrabold text-lime">SUPER SAPIENS INDIA</p>
           <p className="mt-1">
             Discover Indian Talent. Track Performance. Shape the Future.
           </p>
@@ -265,7 +265,7 @@ const Doc = ({ t, p }: { t: string; p: string[] }) => (
     <article className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-4xl font-extrabold">{t}</h1>
       <p className="mt-2 text-xs text-mute">
-        Prototype content for ATHLETIX India.
+        Prototype content for SUPER SAPIENS India.
       </p>
       {p.map((x, i) => (
         <p key={i} className="mt-5 text-mute">
@@ -277,9 +277,9 @@ const Doc = ({ t, p }: { t: string; p: string[] }) => (
 );
 export const About = () => (
   <Doc
-    t="About ATHLETIX India"
+    t="About SUPER SAPIENS India"
     p={[
-      "ATHLETIX India is a prototype for discovering Indian athletes, tracking performance, sharing Indian sports news and simulating a contract marketplace.",
+      "SUPER SAPIENS India is a prototype for discovering Indian athletes, tracking performance, sharing Indian sports news and simulating a contract marketplace.",
       "All athletes, statistics, articles and contracts shown are fictional demonstration data.",
       "The marketplace uses virtual Indian rupees only. No payments are taken and nothing is a financial offer.",
     ]}
@@ -289,7 +289,7 @@ export const Terms = () => (
   <Doc
     t="Terms & Conditions"
     p={[
-      "Placeholder terms for acceptable use of ATHLETIX India.",
+      "Placeholder terms for acceptable use of SUPER SAPIENS India.",
       "Simulated marketplace terms: demo transactions have no monetary value.",
       "Governance and liability terms must be reviewed for Indian law before launch.",
     ]}
