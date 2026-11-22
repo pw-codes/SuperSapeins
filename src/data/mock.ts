@@ -4,6 +4,7 @@ export type Athlete = {
   name: string;
   sport: string;
   country: string;
+  state: string;
   position: string;
   age: number;
   score: number;
@@ -37,6 +38,44 @@ export const SPORTS = [
   "Badminton",
 ];
 export const COUNTRIES = ["India"];
+export const INDIAN_STATES = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman and Nicobar Islands (Union Territory)",
+  "Chandigarh (Union Territory)",
+  "Dadra and Nagar Haveli and Daman and Diu (Union Territory)",
+  "Delhi (Union Territory)",
+  "Jammu and Kashmir (Union Territory)",
+  "Ladakh (Union Territory)",
+  "Lakshadweep (Union Territory)",
+  "Puducherry (Union Territory)",
+];
 const POS: Record<string, string[]> = {
   Football: ["Midfielder", "Winger", "Striker"],
   Basketball: ["Guard", "Forward", "Centre"],
@@ -47,20 +86,6 @@ const POS: Record<string, string[]> = {
   Kabaddi: ["Raider", "Defender", "All-rounder"],
   Badminton: ["Singles", "Singles", "Doubles"],
 };
-const STATES = [
-  "Maharashtra",
-  "Punjab",
-  "Haryana",
-  "Tamil Nadu",
-  "Karnataka",
-  "Kerala",
-  "Delhi",
-  "West Bengal",
-  "Gujarat",
-  "Odisha",
-  "Telangana",
-  "Assam",
-];
 const ACH = [
   "State youth championship",
   "Season top performer",
@@ -97,12 +122,14 @@ const N = [
 ];
 export const athletes: Athlete[] = N.map((name, i) => {
   const sport = SPORTS[i % SPORTS.length],
-    age = 17 + ((i * 7) % 13);
+    age = 17 + ((i * 7) % 13),
+    state = INDIAN_STATES[i % INDIAN_STATES.length];
   return {
     id: `a${i + 1}`,
     name,
     sport,
     country: "India",
+    state,
     position: POS[sport][i % 3],
     age,
     score: 68 + ((i * 37) % 30),
@@ -112,7 +139,7 @@ export const athletes: Athlete[] = N.map((name, i) => {
     verified: i % 6 === 0,
     achievement: `${ACH[i % 6]} (demo)`,
     photo: "",
-    bio: `${name} is a fictional Indian athlete from ${STATES[i % STATES.length]}, created for the SUPER SAPIENS prototype. Nothing here is a real record.`,
+    bio: `${name} is a fictional Indian athlete from ${INDIAN_STATES[i % INDIAN_STATES.length]}, created for the SUPER SAPIENS prototype. Nothing here is a real record.`,
   };
 });
 export const series = (seed: number, n = 90) => {
