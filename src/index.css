@@ -1,0 +1,5 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-bg text-tx font-sans antialiased;font-variant-numeric:tabular-nums}
+input,select,textarea{@apply rounded-xl border border-line bg-bg2 px-3 py-2 text-sm text-tx outline-none focus:border-lime}
+:focus-visible{outline:2px solid #B9F34B;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
