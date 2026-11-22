@@ -18,7 +18,7 @@ function Nav() {
           to="/"
           className="text-lg font-extrabold tracking-tight text-lime"
         >
-          SUPER SAPIENS INDIA
+          SUPER SAPIENS
         </Link>
         <nav className="hidden gap-5 text-sm text-mute md:flex">
           {nav.map(([l, t]) => (
@@ -44,7 +44,7 @@ function Foot() {
     <footer className="mt-24 border-t border-line bg-bg2 py-10">
       <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-6 px-4 text-sm text-mute md:px-8">
         <div>
-          <p className="font-extrabold text-lime">SUPER SAPIENS INDIA</p>
+          <p className="font-extrabold text-lime">SUPER SAPIENS</p>
           <p className="mt-1">
             Discover Indian Talent. Track Performance. Shape the Future.
           </p>
