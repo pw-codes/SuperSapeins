@@ -29,34 +29,37 @@ export type NewsArticle = {
   body: string[];
 };
 export const TALENT_FIELDS = [
-  "Football",
-  "Basketball",
-  "Tennis",
   "Athletics",
-  "Swimming",
-  "Cricket",
-  "Kabaddi",
   "Badminton",
+  "Basketball",
+  "Chess",
+  "Craft & Design",
+  "Cricket",
   "Dance",
-  "Music",
-  "Visual Arts",
-  "Theatre",
-  "Photography",
   "Film & Animation",
-  "Writing",
-  "Craft & Design",
-];
-export const SPORTS = TALENT_FIELDS;
-export const TALENT_CATEGORIES = [
-  "Sports",
-  "Dance",
+  "Football",
+  "Hockey",
+  "Kabaddi",
   "Music",
+  "Photography",
+  "Pickleball",
+  "Swimming",
+  "Tennis",
+  "Theatre",
   "Visual Arts",
-  "Performing Arts",
-  "Media",
-  "Literary Arts",
+  "Writing",
+].sort((a, b) => a.localeCompare(b));
+export const SPORTS = [...TALENT_FIELDS].sort((a, b) => a.localeCompare(b));
+export const TALENT_CATEGORIES = [
   "Craft & Design",
-];
+  "Dance",
+  "Literary Arts",
+  "Media",
+  "Music",
+  "Performing Arts",
+  "Sports",
+  "Visual Arts",
+].sort((a, b) => a.localeCompare(b));
 export const COUNTRIES = ["India"];
 export const INDIAN_STATES = [
   "Andhra Pradesh",
@@ -105,6 +108,8 @@ const POS: Record<string, string[]> = {
   Cricket: ["Batter", "Bowler", "All-rounder"],
   Kabaddi: ["Raider", "Defender", "All-rounder"],
   Badminton: ["Singles", "Singles", "Doubles"],
+  Chess: ["Rapid", "Blitz", "Classical"],
+  Hockey: ["Forward", "Midfielder", "Defender"],
   Dance: ["Contemporary", "Classical", "Hip-hop"],
   Music: ["Vocals", "Instrumentalist", "Composer"],
   "Visual Arts": ["Painting", "Illustration", "Digital art"],
@@ -113,6 +118,7 @@ const POS: Record<string, string[]> = {
   "Film & Animation": ["Film", "Animation", "Editing"],
   Writing: ["Poetry", "Fiction", "Screenwriting"],
   "Craft & Design": ["Fashion", "Textile", "Product design"],
+  Pickleball: ["Singles", "Doubles", "Mixed doubles"],
 };
 const CATEGORY_BY_FIELD: Record<string, string> = {
   Football: "Sports",
@@ -123,6 +129,9 @@ const CATEGORY_BY_FIELD: Record<string, string> = {
   Cricket: "Sports",
   Kabaddi: "Sports",
   Badminton: "Sports",
+  Chess: "Sports",
+  Hockey: "Sports",
+  Pickleball: "Sports",
   Dance: "Dance",
   Music: "Music",
   "Visual Arts": "Visual Arts",

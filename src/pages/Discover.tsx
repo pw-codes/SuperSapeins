@@ -137,9 +137,11 @@ export default function Discover() {
       onChange={(e) => setF({ ...f, [k]: e.target.value })}
     >
       <option value="">{l}</option>
-      {o.map((x) => (
-        <option key={x}>{x}</option>
-      ))}
+      {[...o]
+        .sort((a, b) => a.localeCompare(b))
+        .map((x) => (
+          <option key={x}>{x}</option>
+        ))}
     </select>
   );
   return (
@@ -170,9 +172,13 @@ export default function Discover() {
           onChange={(e) => setF({ ...f, category: e.target.value, sport: "" })}
         >
           <option value="">All talents</option>
-          {TALENT_CATEGORIES.map((category) => (
-            <option key={category} value={category}>{category}</option>
-          ))}
+          {[...TALENT_CATEGORIES]
+            .sort((a, b) => a.localeCompare(b))
+            .map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
         </select>
         <select
           aria-label="Discipline"
@@ -180,13 +186,20 @@ export default function Discover() {
           onChange={(e) => setF({ ...f, sport: e.target.value })}
         >
           <option value="">All disciplines</option>
-          {SPORTS.filter(
-            (sport) =>
-              !f.category ||
-              athletes.some((a) => a.category === f.category && a.sport === sport),
-          ).map((sport) => (
-            <option key={sport} value={sport}>{sport}</option>
-          ))}
+          {[...SPORTS]
+            .filter(
+              (sport) =>
+                !f.category ||
+                athletes.some(
+                  (a) => a.category === f.category && a.sport === sport,
+                ),
+            )
+            .sort((a, b) => a.localeCompare(b))
+            .map((sport) => (
+              <option key={sport} value={sport}>
+                {sport}
+              </option>
+            ))}
         </select>
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-2">

@@ -96,9 +96,11 @@ export function News() {
         >
           <input name="title" required placeholder="Article title" />
           <select name="cat">
-            {SPORTS.map((s) => (
-              <option key={s}>{s}</option>
-            ))}
+            {[...SPORTS]
+              .sort((a, b) => a.localeCompare(b))
+              .map((s) => (
+                <option key={s}>{s}</option>
+              ))}
           </select>
           <textarea
             name="body"
@@ -127,7 +129,9 @@ export function News() {
         >
           <option value="">All categories</option>
           {SPORTS.map((sport) => (
-            <option key={sport} value={sport}>{sport}</option>
+            <option key={sport} value={sport}>
+              {sport}
+            </option>
           ))}
         </select>
       </div>
