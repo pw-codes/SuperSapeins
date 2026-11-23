@@ -119,18 +119,17 @@ export function News() {
         </h2>
         <p className="mt-2 text-mute">{f.desc}</p>
       </Link>
-      <div className="mt-6 flex gap-2 overflow-x-auto">
-        {["", ...SPORTS].map((x) => (
-          <button
-            key={x}
-            onClick={() => setC(x)}
-            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm ${
-              c === x ? "border-lime bg-lime text-bg" : "border-line text-mute"
-            }`}
-          >
-            {x || "All"}
-          </button>
-        ))}
+      <div className="mt-6">
+        <select
+          aria-label="Filter news category"
+          value={c}
+          onChange={(e) => setC(e.target.value)}
+        >
+          <option value="">All categories</option>
+          {SPORTS.map((sport) => (
+            <option key={sport} value={sport}>{sport}</option>
+          ))}
+        </select>
       </div>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {l.map((n) => (

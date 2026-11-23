@@ -163,34 +163,31 @@ export default function Discover() {
           <option key={a.id} value={a.name} />
         ))}
       </datalist>
-      <div className="mt-4 flex gap-2 overflow-x-auto">
-        {["", ...TALENT_CATEGORIES].map((c) => (
-          <button
-            key={c}
-            onClick={() => setF({ ...f, category: c, sport: "" })}
-            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm ${f.category === c ? "border-lime bg-lime text-bg" : "border-line text-mute"}`}
-          >
-            {c || "All talents"}
-          </button>
-        ))}
-      </div>
-      <div className="mt-3 flex gap-2 overflow-x-auto">
-        {[
-          "",
-          ...SPORTS.filter(
-            (s) =>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <select
+          aria-label="Talent"
+          value={f.category}
+          onChange={(e) => setF({ ...f, category: e.target.value, sport: "" })}
+        >
+          <option value="">All talents</option>
+          {TALENT_CATEGORIES.map((category) => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+        <select
+          aria-label="Discipline"
+          value={f.sport}
+          onChange={(e) => setF({ ...f, sport: e.target.value })}
+        >
+          <option value="">All disciplines</option>
+          {SPORTS.filter(
+            (sport) =>
               !f.category ||
-              athletes.some((a) => a.category === f.category && a.sport === s),
-          ),
-        ].map((s) => (
-          <button
-            key={s}
-            onClick={() => setF({ ...f, sport: s })}
-            className={`shrink-0 rounded-full border px-4 py-1.5 text-sm ${f.sport === s ? "border-lime bg-lime text-bg" : "border-line text-mute"}`}
-          >
-            {s || "All disciplines"}
-          </button>
-        ))}
+              athletes.some((a) => a.category === f.category && a.sport === sport),
+          ).map((sport) => (
+            <option key={sport} value={sport}>{sport}</option>
+          ))}
+        </select>
       </div>
       <div className="mt-4 flex flex-wrap items-center gap-2">
         {sel("state", INDIAN_STATES, "Indian state / Union Territory")}
