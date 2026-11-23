@@ -149,7 +149,9 @@ export function Onboarding() {
       <p className="mt-2 text-mute">Four quick steps to tailor your feed.</p>
     </div>,
     <div>
-      <h2 className="text-2xl font-extrabold">Pick your favourite sports</h2>
+      <h2 className="text-2xl font-extrabold">
+        Pick your favourite disciplines
+      </h2>
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {SPORTS.map((x) => (
           <button
@@ -163,7 +165,7 @@ export function Onboarding() {
       </div>
     </div>,
     <div>
-      <h2 className="text-2xl font-extrabold">Follow some athletes</h2>
+      <h2 className="text-2xl font-extrabold">Follow some emerging talent</h2>
       <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {athletes
           .filter((a) => s.sports.length === 0 || s.sports.includes(a.sport))
@@ -218,7 +220,8 @@ export function Onboarding() {
     <div>
       <h2 className="text-3xl font-extrabold">You’re all set</h2>
       <p className="mt-2 text-mute">
-        Following {s.follow.length} athletes across {s.sports.length} sports.
+        Following {s.follow.length} talents across {s.sports.length}{" "}
+        disciplines.
       </p>
     </div>,
   ];

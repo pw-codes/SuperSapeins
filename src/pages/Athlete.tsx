@@ -18,7 +18,7 @@ export default function Athlete() {
   if (!a)
     return (
       <div className="py-20 text-center">
-        <p className="font-bold">Athlete not found</p>
+        <p className="font-bold">Talent not found</p>
         <Link to="/app/discover" className="text-lime">
           Back to discovery
         </Link>
@@ -43,9 +43,7 @@ export default function Athlete() {
           <p className="mt-1 text-mute">
             {a.sport} · {a.position} · {a.country}
           </p>
-          <p className="mt-1 text-xs text-mute">
-            Fictional Indian demo athlete
-          </p>
+          <p className="mt-1 text-xs text-mute"></p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Btn
               v={f ? "ghost" : "solid"}

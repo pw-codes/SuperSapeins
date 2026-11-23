@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
-import { athletes, news, contracts, formatINR } from "../data/mock";
+import {
+  athletes,
+  news,
+  contracts,
+  formatINR,
+  TALENT_FIELDS,
+} from "../data/mock";
 import { Btn, Card, Counter, Photo, Reveal, Demo } from "../components/ui";
 import { AthleteCard } from "./Discover";
 const nav = [
   ["Discover", "/app/discover"],
-  ["Athletes", "/app/discover"],
+  ["Talents", "/app/discover"],
   ["Marketplace", "/app/market"],
   ["News", "/app/news"],
   ["About", "/about"],
@@ -85,16 +91,16 @@ export function Landing() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-8 md:py-28">
           <div>
             <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-              The Future of Indian Sports Talent Starts Here.
+              The Future of Indian Talent Starts Here.
             </h1>
             <p className="mt-5 max-w-lg text-mute">
-              Discover emerging Indian athletes, explore performance insights,
-              follow rising stars and experience talent discovery dedicated to
-              India.
+              Discover emerging Indian creators and performers across sports,
+              dance, music, art, media and more. Follow rising talent and
+              explore every discipline in one connected platform.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/app/discover">
-                <Btn>Explore Indian Athletes</Btn>
+                <Btn>Explore Indian Talent</Btn>
               </Link>
               <a href="#how">
                 <Btn v="ghost">Discover the Platform</Btn>
@@ -134,8 +140,8 @@ export function Landing() {
       </section>
       <section className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 md:grid-cols-4 md:px-8">
         {[
-          ["Indian athlete profiles", athletes.length],
-          ["Sports covered", SPORTS_COUNT],
+          ["Indian talent profiles", athletes.length],
+          ["Disciplines covered", TALENT_FIELDS.length],
           ["Indian states represented", 12],
           ["Sample contracts", contracts.length],
         ].map(([l, n], i) => (
@@ -168,11 +174,11 @@ export function Landing() {
           {[
             [
               "Discover",
-              "Search and filter Indian athletes by sport, state, age and career stage.",
+              "Search and filter Indian athletes and creators by sport, state, age and career stage.",
             ],
             [
               "Track",
-              "Follow athletes and watch performance trends move over time.",
+              "Follow athletes and creators, and watch performance trends move over time.",
             ],
             [
               "Simulate",
@@ -192,7 +198,7 @@ export function Landing() {
       </section>
       <section className="mx-auto mt-20 max-w-7xl px-4 md:px-8">
         <h2 className="text-2xl font-extrabold md:text-4xl">
-          Latest Indian sports news
+          Latest Indian talent stories
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {news.slice(0, 3).map((n) => (
@@ -259,7 +265,6 @@ export function Landing() {
     </Page>
   );
 }
-const SPORTS_COUNT = 8;
 const Doc = ({ t, p }: { t: string; p: string[] }) => (
   <Page>
     <article className="mx-auto max-w-3xl px-4 py-16">
@@ -279,8 +284,8 @@ export const About = () => (
   <Doc
     t="About SUPER SAPIENS India"
     p={[
-      "SUPER SAPIENS India is a prototype for discovering Indian athletes, tracking performance, sharing Indian sports news and simulating a contract marketplace.",
-      "All athletes, statistics, articles and contracts shown are fictional demonstration data.",
+      "SUPER SAPIENS India is a prototype for discovering Indian talent across sports, dance, music, visual arts, media and other disciplines, while tracking growth and sharing talent stories.",
+      "All talent profiles, scores, articles and contracts shown are fictional demonstration data.",
       "The marketplace uses virtual Indian rupees only. No payments are taken and nothing is a financial offer.",
     ]}
   />

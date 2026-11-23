@@ -27,7 +27,7 @@ const G: [string, [string, string, any][]][] = [
     "Overview",
     [
       ["Dashboard", "/app", LayoutDashboard],
-      ["Discover Athletes", "/app/discover", Search],
+      ["Discover Talent", "/app/discover", Search],
       ["Marketplace", "/app/market", TrendingUp],
       ["News", "/app/news", Newspaper],
     ],
@@ -115,8 +115,8 @@ export default function Shell() {
             <Search size={16} className="absolute left-3 top-2.5 text-mute" />
             <input
               name="q"
-              aria-label="Search athletes"
-              placeholder="Search athletes"
+              aria-label="Search talent"
+              placeholder="Search talent"
               className="w-full pl-9"
             />
           </form>

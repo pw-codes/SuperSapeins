@@ -3,6 +3,7 @@ export type Athlete = {
   id: string;
   name: string;
   sport: string;
+  category: string;
   country: string;
   state: string;
   position: string;
@@ -27,7 +28,7 @@ export type NewsArticle = {
   athleteId: string;
   body: string[];
 };
-export const SPORTS = [
+export const TALENT_FIELDS = [
   "Football",
   "Basketball",
   "Tennis",
@@ -36,6 +37,25 @@ export const SPORTS = [
   "Cricket",
   "Kabaddi",
   "Badminton",
+  "Dance",
+  "Music",
+  "Visual Arts",
+  "Theatre",
+  "Photography",
+  "Film & Animation",
+  "Writing",
+  "Craft & Design",
+];
+export const SPORTS = TALENT_FIELDS;
+export const TALENT_CATEGORIES = [
+  "Sports",
+  "Dance",
+  "Music",
+  "Visual Arts",
+  "Performing Arts",
+  "Media",
+  "Literary Arts",
+  "Craft & Design",
 ];
 export const COUNTRIES = ["India"];
 export const INDIAN_STATES = [
@@ -85,14 +105,42 @@ const POS: Record<string, string[]> = {
   Cricket: ["Batter", "Bowler", "All-rounder"],
   Kabaddi: ["Raider", "Defender", "All-rounder"],
   Badminton: ["Singles", "Singles", "Doubles"],
+  Dance: ["Contemporary", "Classical", "Hip-hop"],
+  Music: ["Vocals", "Instrumentalist", "Composer"],
+  "Visual Arts": ["Painting", "Illustration", "Digital art"],
+  Theatre: ["Acting", "Direction", "Writing"],
+  Photography: ["Portrait", "Documentary", "Editorial"],
+  "Film & Animation": ["Film", "Animation", "Editing"],
+  Writing: ["Poetry", "Fiction", "Screenwriting"],
+  "Craft & Design": ["Fashion", "Textile", "Product design"],
+};
+const CATEGORY_BY_FIELD: Record<string, string> = {
+  Football: "Sports",
+  Basketball: "Sports",
+  Tennis: "Sports",
+  Athletics: "Sports",
+  Swimming: "Sports",
+  Cricket: "Sports",
+  Kabaddi: "Sports",
+  Badminton: "Sports",
+  Dance: "Dance",
+  Music: "Music",
+  "Visual Arts": "Visual Arts",
+  Theatre: "Performing Arts",
+  Photography: "Media",
+  "Film & Animation": "Media",
+  Writing: "Literary Arts",
+  "Craft & Design": "Craft & Design",
 };
 const ACH = [
   "State youth championship",
   "Season top performer",
-  "Personal best set",
+  "Breakthrough showcase",
   "National camp selection",
   "Breakthrough season",
-  "Junior national medal",
+  "Junior national recognition",
+  "Festival selection",
+  "Independent debut",
 ];
 const N = [
   "Arjun Sharma",
@@ -128,6 +176,7 @@ export const athletes: Athlete[] = N.map((name, i) => {
     id: `a${i + 1}`,
     name,
     sport,
+    category: CATEGORY_BY_FIELD[sport],
     country: "India",
     state,
     position: POS[sport][i % 3],
@@ -137,9 +186,9 @@ export const athletes: Athlete[] = N.map((name, i) => {
     stage: age < 20 ? "Youth" : age < 24 ? "Emerging" : "Professional",
     trending: i % 4 === 0,
     verified: i % 6 === 0,
-    achievement: `${ACH[i % 6]} (demo)`,
+    achievement: `${ACH[i % ACH.length]} (demo)`,
     photo: "",
-    bio: `${name} is a fictional Indian athlete from ${INDIAN_STATES[i % INDIAN_STATES.length]}, created for the SUPER SAPIENS prototype. Nothing here is a real record.`,
+    bio: `${name} is a fictional Indian talent from ${state}, created for the SUPER SAPIENS discovery prototype. This profile represents work and potential across ${sport}. Nothing here is a real record.`,
   };
 });
 export const series = (seed: number, n = 90) => {
