@@ -65,7 +65,7 @@ export default function Shell() {
           to="/"
           className="mb-6 px-2 py-2 text-lg font-extrabold tracking-tight text-lime"
         >
-          {s.collapsed ? "S" : "SUPER SAPIENS"}
+          {s.collapsed ? "S" : "SUPER SAPIEN"}
         </Link>
         <nav className="flex-1 space-y-5 overflow-y-auto">
           {G.map(([g, items]) => (
@@ -102,7 +102,7 @@ export default function Shell() {
       <div className="min-w-0 flex-1 pb-20 md:pb-0">
         <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-line bg-bg/90 px-4 py-3 backdrop-blur md:px-8">
           <Link to="/" className="font-extrabold text-lime md:hidden">
-            SUPER SAPIENS
+            SUPER SAPIEN
           </Link>
           <form
             className="relative ml-auto max-w-md flex-1"

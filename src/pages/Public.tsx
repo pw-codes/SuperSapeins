@@ -24,7 +24,7 @@ function Nav() {
           to="/"
           className="text-lg font-extrabold tracking-tight text-lime"
         >
-          SUPER SAPIENS
+          SUPER SAPIEN
         </Link>
         <nav className="hidden gap-5 text-sm text-mute md:flex">
           {nav.map(([l, t]) => (
@@ -50,7 +50,7 @@ function Foot() {
     <footer className="mt-24 border-t border-line bg-bg2 py-10">
       <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-6 px-4 text-sm text-mute md:px-8">
         <div>
-          <p className="font-extrabold text-lime">SUPER SAPIENS</p>
+          <p className="font-extrabold text-lime">SUPER SAPIEN</p>
           <p className="mt-1">
             Discover Indian Talent. Track Performance. Shape the Future.
           </p>
@@ -270,7 +270,7 @@ const Doc = ({ t, p }: { t: string; p: string[] }) => (
     <article className="mx-auto max-w-3xl px-4 py-16">
       <h1 className="text-4xl font-extrabold">{t}</h1>
       <p className="mt-2 text-xs text-mute">
-        Prototype content for SUPER SAPIENS India.
+        Prototype content for SUPER SAPIEN India.
       </p>
       {p.map((x, i) => (
         <p key={i} className="mt-5 text-mute">
@@ -282,9 +282,9 @@ const Doc = ({ t, p }: { t: string; p: string[] }) => (
 );
 export const About = () => (
   <Doc
-    t="About SUPER SAPIENS India"
+    t="About SUPER SAPIEN India"
     p={[
-      "SUPER SAPIENS India is a prototype for discovering Indian talent across sports, dance, music, visual arts, media and other disciplines, while tracking growth and sharing talent stories.",
+      "SUPER SAPIEN India is a prototype for discovering Indian talent across sports, dance, music, visual arts, media and other disciplines, while tracking growth and sharing talent stories.",
       "All talent profiles, scores, articles and contracts shown are fictional demonstration data.",
       "The marketplace uses virtual Indian rupees only. No payments are taken and nothing is a financial offer.",
     ]}
@@ -294,7 +294,7 @@ export const Terms = () => (
   <Doc
     t="Terms & Conditions"
     p={[
-      "Placeholder terms for acceptable use of SUPER SAPIENS India.",
+      "Placeholder terms for acceptable use of SUPER SAPIEN India.",
       "Simulated marketplace terms: demo transactions have no monetary value.",
       "Governance and liability terms must be reviewed for Indian law before launch.",
     ]}

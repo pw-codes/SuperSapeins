@@ -46,7 +46,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     try {
       return {
         ...D,
-        ...JSON.parse(localStorage.getItem("super-sapiens") || "{}"),
+        ...JSON.parse(localStorage.getItem("super-sapien") || "{}"),
       };
     } catch {
       return D;
@@ -55,7 +55,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [toasts, setT] = useState<any[]>([]);
   useEffect(() => {
     try {
-      localStorage.setItem("super-sapiens", JSON.stringify(s));
+      localStorage.setItem("super-sapien", JSON.stringify(s));
     } catch {}
   }, [s]);
   const set = (p: Partial<S>) => setS((x) => ({ ...x, ...p }));

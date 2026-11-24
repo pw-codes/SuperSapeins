@@ -16,7 +16,7 @@ const Wrap = ({
   <div className="grid min-h-screen place-items-center px-4">
     <div className="w-full max-w-sm">
       <Link to="/" className="text-lg font-extrabold text-lime">
-        SUPER SAPIENS
+        SUPER SAPIEN
       </Link>
       <h1 className="mt-6 text-3xl font-extrabold">{t}</h1>
       <p className="mt-1 text-sm text-mute">{sub}</p>
@@ -145,7 +145,7 @@ export function Onboarding() {
     a.includes(x) ? a.filter((y) => y !== x) : [...a, x];
   const steps = [
     <div>
-      <h2 className="text-3xl font-extrabold">Welcome to SUPER SAPIENS</h2>
+      <h2 className="text-3xl font-extrabold">Welcome to SUPER SAPIEN</h2>
       <p className="mt-2 text-mute">Four quick steps to tailor your feed.</p>
     </div>,
     <div>

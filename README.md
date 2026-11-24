@@ -1,10 +1,10 @@
-# SUPER SAPIENS 🌟
+# SUPER SAPIEN 🌟
 
 ### Every Talent Deserves to Be Discovered.
 
-**Super Sapiens** is a talent discovery and networking platform built to bring together people with diverse abilities, passions, and creative potential.
+**Super Sapien** is a talent discovery and networking platform built to bring together people with diverse abilities, passions, and creative potential.
 
-Whether it's sports, dance, music, art, technology, content creation, or any other unique skill, Super Sapiens provides a space for individuals to showcase their talents, discover others, and connect with people who share their interests.
+Whether it's sports, dance, music, art, technology, content creation, or any other unique skill, Super Sapien provides a space for individuals to showcase their talents, discover others, and connect with people who share their interests.
 
 ## 🌍 Our Vision
 
@@ -22,7 +22,7 @@ Our vision is to create an ecosystem where talent is not limited by background, 
 
 ## 🎨 Explore Every Kind of Talent
 
-Super Sapiens welcomes talent across multiple domains:
+Super Sapien welcomes talent across multiple domains:
 
 - Sports & Fitness
 - Dance & Performing Arts
@@ -40,14 +40,14 @@ Super Sapiens welcomes talent across multiple domains:
 
 Talent exists everywhere, but opportunities to showcase it do not.
 
-Super Sapiens aims to bridge that gap by creating a platform where discovery leads to connections, connections lead to collaborations, and collaborations create opportunities.
+Super Sapien aims to bridge that gap by creating a platform where discovery leads to connections, connections lead to collaborations, and collaborations create opportunities.
 
 ## 🚀 The Bigger Picture
 
 We are building more than a platform. We are building a community that celebrates human potential in every form.
 
-**SUPER SAPIENS — Discover Talent. Connect. Create Opportunities.**
+**SUPER SAPIEN — Discover Talent. Connect. Create Opportunities.**
 
 ---
 
-*Every individual has a story. Every skill has value. Every talent deserves a stage.*
+_Every individual has a story. Every skill has value. Every talent deserves a stage._
