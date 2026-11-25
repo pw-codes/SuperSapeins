@@ -1,0 +1,4 @@
+{
+  "installCommand": "npm cache clean --force && npm ci --prefer-online --fetch-retries=5 --fetch-retry-mintimeout=2000 --fetch-retry-maxtimeout=10000",
+  "buildCommand": "npm run build"
+}
