@@ -150,8 +150,12 @@ export default function Discover() {
         Discover Extraordinary Talent.
       </h1>
       <p className="mt-3 max-w-2xl text-mute">
-        Explore emerging creators and performers across sports, dance, music,
-        visual arts, media and more.
+        Prototype presented on the basis of data collected from the Google Form
+        survey by the Super Sapein.
+      </p>
+      <p className="mt-2 text-xs text-lime">
+        16 surveyed respondent profiles · source: Super Sapein Google Form
+        survey
       </p>
       <input
         list="sugg"
@@ -233,7 +237,7 @@ export default function Discover() {
         </button>
       </div>
       <p className="mt-4 text-sm text-mute">
-        {res.length} talents · fictional demo profiles
+        {res.length} surveyed profiles · Super Sapein Google Form data
       </p>
       {load ? (
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

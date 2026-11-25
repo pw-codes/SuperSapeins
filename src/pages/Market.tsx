@@ -192,8 +192,7 @@ export function Contract() {
             {tab === "Overview" && (
               <>
                 <p>
-                  Sample contract for a fictional Indian athlete. Valuation
-                  history (simulated):
+                  Survey respondent profile; valuation history is simulated.
                 </p>
                 <div className="mt-4">
                   <Trend seed={seedOf(c.id) + 10} />

@@ -82,7 +82,8 @@ export function News() {
         <div>
           <h1 className="text-3xl font-extrabold">Indian sports news</h1>
           <p className="text-xs text-mute">
-            Fictional Indian demonstration content, not real reporting.
+            Survey-based Super Sapein profile stories · not independently
+            verified reporting.
           </p>
         </div>
         <Btn onClick={() => setOpen(!open)}>
@@ -173,7 +174,7 @@ export function Article() {
     <article className="mx-auto max-w-3xl">
       <div className="h-56 rounded-2xl bg-gradient-to-br from-lime/25 to-bg2 md:h-72" />
       <p className="mt-6 text-xs text-lime">
-        {n.cat} · fictional Indian sports content
+        {n.cat} · Super Sapein survey profile
       </p>
       <h1 className="mt-2 text-3xl font-extrabold md:text-5xl">{n.title}</h1>
       <p className="mt-2 text-sm text-mute">

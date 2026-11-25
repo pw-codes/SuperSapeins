@@ -1,4 +1,5 @@
-// All data is FICTIONAL demo data. Replace with API services later (keep these types).
+// Super Sapein prototype data: collected through a Google Form survey.
+// This file retains the existing application types while providing verified survey entries.
 export type Athlete = {
   id: string;
   name: string;
@@ -6,7 +7,10 @@ export type Athlete = {
   category: string;
   country: string;
   state: string;
+  city: string;
   position: string;
+  expertise: string[];
+  ageRange: string;
   age: number;
   score: number;
   growth: number;
@@ -16,6 +20,7 @@ export type Athlete = {
   achievement: string;
   photo: string;
   bio: string;
+  surveySource: string;
 };
 export type NewsArticle = {
   id: string;
@@ -29,177 +34,286 @@ export type NewsArticle = {
   body: string[];
 };
 export const TALENT_FIELDS = [
-  "Athletics",
-  "Badminton",
-  "Basketball",
+  "Accounts & Audit",
+  "Audit",
+  "Chartered Accountancy",
   "Chess",
-  "Craft & Design",
-  "Cricket",
-  "Dance",
-  "Film & Animation",
-  "Football",
-  "Hockey",
-  "Kabaddi",
-  "Music",
+  "Communication",
+  "Content Creation",
+  "Content Writing",
+  "Critical Thinking",
+  "Entrepreneurship",
+  "Handball",
+  "Marketing",
   "Photography",
-  "Pickleball",
-  "Swimming",
-  "Tennis",
-  "Theatre",
-  "Visual Arts",
-  "Writing",
+  "Problem Solving",
+  "Public Speaking",
+  "Teaching",
+  "Transfer Pricing",
 ].sort((a, b) => a.localeCompare(b));
 export const SPORTS = [...TALENT_FIELDS].sort((a, b) => a.localeCompare(b));
 export const TALENT_CATEGORIES = [
-  "Craft & Design",
-  "Dance",
+  "Business",
+  "Communication",
+  "Finance",
   "Literary Arts",
   "Media",
-  "Music",
   "Performing Arts",
   "Sports",
-  "Visual Arts",
+  "Teaching",
 ].sort((a, b) => a.localeCompare(b));
 export const COUNTRIES = ["India"];
-export const INDIAN_STATES = [
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chhattisgarh",
-  "Goa",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttar Pradesh",
-  "Uttarakhand",
-  "West Bengal",
-  "Andaman and Nicobar Islands (Union Territory)",
-  "Chandigarh (Union Territory)",
-  "Dadra and Nagar Haveli and Daman and Diu (Union Territory)",
-  "Delhi (Union Territory)",
-  "Jammu and Kashmir (Union Territory)",
-  "Ladakh (Union Territory)",
-  "Lakshadweep (Union Territory)",
-  "Puducherry (Union Territory)",
-];
-const POS: Record<string, string[]> = {
-  Football: ["Midfielder", "Winger", "Striker"],
-  Basketball: ["Guard", "Forward", "Centre"],
-  Tennis: ["Singles", "Singles", "Doubles"],
-  Athletics: ["Sprinter", "Middle distance", "Jumper"],
-  Swimming: ["Freestyle", "Butterfly", "Backstroke"],
-  Cricket: ["Batter", "Bowler", "All-rounder"],
-  Kabaddi: ["Raider", "Defender", "All-rounder"],
-  Badminton: ["Singles", "Singles", "Doubles"],
-  Chess: ["Rapid", "Blitz", "Classical"],
-  Hockey: ["Forward", "Midfielder", "Defender"],
-  Dance: ["Contemporary", "Classical", "Hip-hop"],
-  Music: ["Vocals", "Instrumentalist", "Composer"],
-  "Visual Arts": ["Painting", "Illustration", "Digital art"],
-  Theatre: ["Acting", "Direction", "Writing"],
-  Photography: ["Portrait", "Documentary", "Editorial"],
-  "Film & Animation": ["Film", "Animation", "Editing"],
-  Writing: ["Poetry", "Fiction", "Screenwriting"],
-  "Craft & Design": ["Fashion", "Textile", "Product design"],
-  Pickleball: ["Singles", "Doubles", "Mixed doubles"],
-};
-const CATEGORY_BY_FIELD: Record<string, string> = {
-  Football: "Sports",
-  Basketball: "Sports",
-  Tennis: "Sports",
-  Athletics: "Sports",
-  Swimming: "Sports",
-  Cricket: "Sports",
-  Kabaddi: "Sports",
-  Badminton: "Sports",
-  Chess: "Sports",
-  Hockey: "Sports",
-  Pickleball: "Sports",
-  Dance: "Dance",
-  Music: "Music",
-  "Visual Arts": "Visual Arts",
-  Theatre: "Performing Arts",
-  Photography: "Media",
-  "Film & Animation": "Media",
-  Writing: "Literary Arts",
-  "Craft & Design": "Craft & Design",
-};
-const ACH = [
-  "State youth championship",
-  "Season top performer",
-  "Breakthrough showcase",
-  "National camp selection",
-  "Breakthrough season",
-  "Junior national recognition",
-  "Festival selection",
-  "Independent debut",
-];
-const N = [
-  "Arjun Sharma",
-  "Ishaan Reddy",
-  "Vivaan Patel",
-  "Aarav Singh",
-  "Reyansh Nair",
-  "Aditya Iyer",
-  "Krish Menon",
-  "Kabir Bhat",
-  "Vihaan Joshi",
-  "Shaurya Rao",
-  "Atharva Kulkarni",
-  "Neil Das",
-  "Dhruv Kapoor",
-  "Yash Verma",
-  "Sai Prakash",
-  "Rohan Chatterjee",
-  "Arnav Gupta",
-  "Karan Malhotra",
-  "Dev Mishra",
-  "Ritvik Yadav",
-  "Mayank Deshmukh",
-  "Siddharth Naidu",
-  "Pranav Pillai",
-  "Anirudh Sen",
-];
-export const athletes: Athlete[] = N.map((name, i) => {
-  const sport = SPORTS[i % SPORTS.length],
-    age = 17 + ((i * 7) % 13),
-    state = INDIAN_STATES[i % INDIAN_STATES.length];
-  return {
-    id: `a${i + 1}`,
-    name,
-    sport,
-    category: CATEGORY_BY_FIELD[sport],
+export const INDIAN_STATES = ["Assam", "Karnataka", "Maharashtra"].sort(
+  (a, b) => a.localeCompare(b),
+);
+
+const SURVEY_SOURCE = "Google Form survey conducted by Super Sapein";
+
+const surveyAthletes: Omit<
+  Athlete,
+  | "id"
+  | "score"
+  | "growth"
+  | "stage"
+  | "trending"
+  | "verified"
+  | "achievement"
+  | "photo"
+  | "surveySource"
+>[] = [
+  {
+    name: "Prasanna",
+    sport: "Audit",
+    category: "Finance",
     country: "India",
-    state,
-    position: POS[sport][i % 3],
-    age,
-    score: 68 + ((i * 37) % 30),
-    growth: Math.round(((i * 53) % 180) - 30) / 10,
-    stage: age < 20 ? "Youth" : age < 24 ? "Emerging" : "Professional",
-    trending: i % 4 === 0,
-    verified: i % 6 === 0,
-    achievement: `${ACH[i % ACH.length]} (demo)`,
-    photo: "",
-    bio: `${name} is a fictional Indian talent from ${state}, created for the SUPER SAPIEN discovery prototype. This profile represents work and potential across ${sport}. Nothing here is a real record.`,
-  };
-});
+    state: "Maharashtra",
+    city: "Panvel",
+    position: "Audit and public speaking",
+    expertise: ["Audit", "Public Speaking", "Chess", "Puzzle"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Prasanna is a Super Sapein respondent with interests in audit, public speaking, chess and puzzles.",
+  },
+  {
+    name: "Rishikesh Gupta",
+    sport: "Accounts & Audit",
+    category: "Finance",
+    country: "India",
+    state: "Maharashtra",
+    city: "Nagpur",
+    position: "Accounts and audit",
+    expertise: ["Accounts", "Audit"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Rishikesh Gupta is a Super Sapein respondent specializing in accounts and audit.",
+  },
+  {
+    name: "Om Keskar",
+    sport: "Public Speaking",
+    category: "Communication",
+    country: "India",
+    state: "Not specified",
+    city: "Not specified",
+    position: "Communication and anchoring",
+    expertise: [
+      "Public Speaking",
+      "Communication",
+      "Anchoring",
+      "Elocution",
+      "Storytelling",
+    ],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Om Keskar is a Super Sapein respondent with expertise in public speaking, communication, anchoring, elocution and storytelling.",
+  },
+  {
+    name: "Hardik Patel",
+    sport: "Transfer Pricing",
+    category: "Finance",
+    country: "India",
+    state: "Maharashtra",
+    city: "Pune",
+    position: "Transfer pricing",
+    expertise: ["Transfer Pricing"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Hardik Patel is a Super Sapein respondent with expertise in transfer pricing.",
+  },
+  {
+    name: "Jugal",
+    sport: "Content Creation",
+    category: "Media",
+    country: "India",
+    state: "Maharashtra",
+    city: "Nashik",
+    position: "Camera and stage presence",
+    expertise: ["Content Creation", "Camera Presence", "Stage Confidence"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Jugal is a Super Sapein respondent with strengths in content creation, camera presence and stage confidence.",
+  },
+  {
+    name: "Labdhi",
+    sport: "Chartered Accountancy",
+    category: "Finance",
+    country: "India",
+    state: "Maharashtra",
+    city: "Mumbai",
+    position: "Entrepreneurship",
+    expertise: ["Chartered Accountancy", "Entrepreneurship"],
+    ageRange: "26+",
+    age: 27,
+    bio: "Labdhi is a Super Sapein respondent with experience in chartered accountancy and entrepreneurship.",
+  },
+  {
+    name: "Arpita Jangid",
+    sport: "Marketing",
+    category: "Business",
+    country: "India",
+    state: "Maharashtra",
+    city: "Mumbai",
+    position: "Marketing",
+    expertise: ["Marketing"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Arpita Jangid is a Super Sapein respondent with expertise in marketing.",
+  },
+  {
+    name: "Dev Shah",
+    sport: "Teaching",
+    category: "Teaching",
+    country: "India",
+    state: "Maharashtra",
+    city: "Mumbai",
+    position: "Teaching CA students",
+    expertise: ["Teaching CA Students"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Dev Shah is a Super Sapein respondent who teaches CA students.",
+  },
+  {
+    name: "Arijit Ghosh",
+    sport: "Content Writing",
+    category: "Literary Arts",
+    country: "India",
+    state: "Karnataka",
+    city: "Bangalore",
+    position: "Content writing and creation",
+    expertise: ["Content Writing", "Content Creation"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Arijit Ghosh is a Super Sapein respondent with expertise in content writing and content creation.",
+  },
+  {
+    name: "Darshi Gada",
+    sport: "Audit",
+    category: "Finance",
+    country: "India",
+    state: "Maharashtra",
+    city: "Mumbai",
+    position: "Article Assistant at BDO India",
+    expertise: ["Audit", "Article Assistant at BDO India"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Darshi Gada is a Super Sapein respondent and an Article Assistant at BDO India.",
+  },
+  {
+    name: "Rohit Tanaji Pasalkar",
+    sport: "Problem Solving",
+    category: "Communication",
+    country: "India",
+    state: "Maharashtra",
+    city: "Pune",
+    position: "Critical thinking",
+    expertise: ["Critical Thinking", "Practical Problem Solving"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Rohit Tanaji Pasalkar is a Super Sapein respondent with strengths in critical thinking and practical problem solving.",
+  },
+  {
+    name: "Sejal Zawar",
+    sport: "Photography",
+    category: "Media",
+    country: "India",
+    state: "Maharashtra",
+    city: "Jalgaon",
+    position: "Photography and writing",
+    expertise: ["Photography", "Content Ideation", "Writing", "Poetry"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Sejal Zawar is a Super Sapein respondent interested in photography, content ideation, writing and poetry.",
+  },
+  {
+    name: "Krushna Pawar",
+    sport: "Handball",
+    category: "Sports",
+    country: "India",
+    state: "Maharashtra",
+    city: "Pune",
+    position: "Centre Back",
+    expertise: ["Handball – Centre Back"],
+    ageRange: "22–26",
+    age: 24,
+    bio: "Krushna Pawar is a Super Sapein respondent who plays handball as a centre back.",
+  },
+  {
+    name: "Riddhi Kolhapure",
+    sport: "Communication",
+    category: "Communication",
+    country: "India",
+    state: "Maharashtra",
+    city: "Kolhapur",
+    position: "Communication and confidence",
+    expertise: ["Communication", "Self-Confidence"],
+    ageRange: "26+",
+    age: 27,
+    bio: "Riddhi Kolhapure is a Super Sapein respondent with expertise in communication and self-confidence.",
+  },
+  {
+    name: "Ipshita Bukhredia",
+    sport: "Content Creation",
+    category: "Media",
+    country: "India",
+    state: "Assam",
+    city: "Sivasagar",
+    position: "Content and drawing",
+    expertise: ["Content Creation", "Drawing", "Interest in Finance"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Ipshita Bukhredia is a Super Sapein respondent interested in content creation, drawing and finance.",
+  },
+  {
+    name: "Uday Sanklecha",
+    sport: "Accounts & Audit",
+    category: "Finance",
+    country: "India",
+    state: "Maharashtra",
+    city: "Pune",
+    position: "Accounting and finance",
+    expertise: ["Accounting", "Finance"],
+    ageRange: "18–22",
+    age: 20,
+    bio: "Uday Sanklecha is a Super Sapein respondent with interests in accounting and finance.",
+  },
+];
+
+export const athletes: Athlete[] = surveyAthletes.map((entry, i) => ({
+  id: `a${i + 1}`,
+  ...entry,
+  score: 68 + ((i * 7) % 24),
+  growth: 1.2 + ((i * 3) % 9) * 0.5,
+  stage:
+    entry.ageRange === "18–22"
+      ? "Youth"
+      : entry.ageRange === "26+"
+        ? "Professional"
+        : "Emerging",
+  trending: i % 4 === 0,
+  verified: true,
+  achievement: entry.expertise.join(" · "),
+  photo: "",
+  surveySource: SURVEY_SOURCE,
+}));
 export const series = (seed: number, n = 90) => {
   let v = 50 + (seed % 20);
   return Array.from({ length: n }, (_, i) => ({
@@ -218,41 +332,36 @@ const ARTICLE_TITLES = [
   "Football academies develop the next Indian wingers",
   "How Indian performance scores are calculated",
 ];
-export const news: NewsArticle[] = Array.from({ length: 8 }, (_, i) => ({
+export const news: NewsArticle[] = athletes.slice(0, 8).map((athlete, i) => ({
   id: `n${i + 1}`,
-  title: ARTICLE_TITLES[i],
-  cat: SPORTS[i % SPORTS.length],
-  desc: "Fictional Indian sports news for the SUPER SAPIEN prototype.",
-  source: "SUPER SAPIEN India Desk",
-  date: `2026-11-${String(20 - i).padStart(2, "0")}`,
-  mins: 3 + (i % 5),
-  athleteId: `a${i * 3 + 1}`,
+  title: `${athlete.name}: ${athlete.expertise.slice(0, 2).join(" and ")}`,
+  cat: athlete.sport,
+  desc: `Super Sapein survey profile highlighting ${athlete.expertise.join(", ")}.`,
+  source: SURVEY_SOURCE,
+  date: "2026-11-25",
+  mins: 2,
+  athleteId: athlete.id,
   body: [
-    "This is fictional demonstration content created for SUPER SAPIEN. It does not describe real events, results or people.",
-    "The story focuses on Indian grassroots programmes, structured coaching and the growing pathways available to young athletes across the country.",
-    "Use these articles as layout previews only. For a live platform, replace this section with verified reporting and licensed Indian sports coverage.",
+    `${athlete.name} was listed in the Google Form survey as a Super Sapein respondent.`,
+    `Reported interests or expertise: ${athlete.expertise.join(", ")}.`,
+    `${athlete.city !== "Not specified" ? `Reported location: ${athlete.city}, ${athlete.state}.` : "A city and state were not specified in the survey."} Reported age range: ${athlete.ageRange}.`,
+    "This prototype presents survey data as entered. The profile does not verify qualifications, achievements or employment.",
   ],
 }));
-export const contracts = Array.from({ length: 8 }, (_, i) => ({
+export const contracts = athletes.slice(0, 8).map((athlete, i) => ({
   id: `c${i + 1}`,
-  athleteId: `a${i * 3 + 1}`,
-  type: ["Performance-linked", "Development", "Endorsement"][i % 3],
+  athleteId: athlete.id,
+  type: ["Development", "Profile showcase", "Community opportunity"][i % 3],
   price: 4000 + i * 1500,
-  change: Math.round(((i * 41) % 120) - 30) / 10,
-  months: 12 + (i % 4) * 6,
-  risk: ["Low", "Medium", "High"][i % 3],
-  sold: 40 + i * 7,
+  change: 0,
+  months: 12,
+  risk: "Prototype only",
+  sold: 0,
 }));
-export const notifs = [
-  ["Arjun Sharma posted a new performance score", "2h ago"],
-  ["Contract c3 price moved (simulated)", "5h ago"],
-  [
-    "New article: Indian youth academies report record talent scouting",
-    "1d ago",
-  ],
-  ["Ishaan Reddy was added to trending", "1d ago"],
-  ["Your weekly Indian sports digest is ready", "3d ago"],
-  ["Welcome to SUPER SAPIEN India", "5d ago"],
-].map(([t, w], i) => ({ id: `x${i + 1}`, t, w }));
+export const notifs = athletes.slice(0, 6).map((athlete, i) => ({
+  id: `x${i + 1}`,
+  t: `${athlete.name} is included in the Super Sapein survey results`,
+  w: i === 0 ? "Just added" : `${i + 1}d ago`,
+}));
 export const formatINR = (n: number) =>
   `₹${n.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;

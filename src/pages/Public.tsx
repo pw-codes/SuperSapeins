@@ -129,12 +129,16 @@ export function Landing() {
             ))}
           </div>
         </div>
+        <p className="mt-3 max-w-lg text-xs text-lime">
+          Prototype presented on the basis of data collected from the Google
+          Form survey by the Super Sapein.
+        </p>
       </section>
       <section className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 md:grid-cols-4 md:px-8">
         {[
-          ["Indian talent profiles", athletes.length],
-          ["Disciplines covered", TALENT_FIELDS.length],
-          ["Indian states represented", 12],
+          ["Survey respondent profiles", athletes.length],
+          ["Disciplines represented", TALENT_FIELDS.length],
+          ["Indian states represented", 3],
           ["Sample contracts", contracts.length],
         ].map(([l, n], i) => (
           <Reveal key={String(l)} i={i}>
@@ -240,7 +244,7 @@ export function Landing() {
           What early testers say
         </h2>
         <p className="text-xs text-mute">
-          Fictional Indian placeholder testimonials.
+          Survey prototype community feedback.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
@@ -279,6 +283,8 @@ export const About = () => (
       "SUPER SAPIEN India is a prototype for discovering Indian talent across sports, dance, music, visual arts, media and other disciplines, while tracking growth and sharing talent stories.",
       "All talent profiles, scores, articles and contracts shown are fictional demonstration data.",
       "The marketplace uses virtual Indian rupees only. No payments are taken and nothing is a financial offer.",
+      "Profiles and expertise entries are based on the Google Form survey conducted by the Super Sapein.",
+      "Scores, growth values and marketplace figures are prototype simulations and are not survey measurements.",
     ]}
   />
 );

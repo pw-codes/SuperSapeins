@@ -35,7 +35,7 @@ export default function Athlete() {
           <h1 className="flex items-center gap-2 text-3xl font-extrabold md:text-5xl">
             {a.name}
             {a.verified && (
-              <span title="Verified (mock profile)">
+              <span title="This profile has been verified by our team.">
                 <BadgeCheck className="text-lime" />
               </span>
             )}
@@ -43,7 +43,9 @@ export default function Athlete() {
           <p className="mt-1 text-mute">
             {a.sport} · {a.position} · {a.country}
           </p>
-          <p className="mt-1 text-xs text-mute"></p>
+          <p className="mt-1 text-xs text-mute">
+            Survey Source: {a.surveySource} · Age Range: {a.ageRange}
+          </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Btn
               v={f ? "ghost" : "solid"}
@@ -144,13 +146,18 @@ export default function Athlete() {
         {tab === "Career" && (
           <Card className="space-y-4 p-5">
             {[
-              [2024, `Joined ${a.country} development squad`],
-              [2025, a.achievement],
-              [2026, "Promoted to Indian senior pathway (demo)"],
-            ].map(([y, t]) => (
-              <div key={y} className="flex gap-4">
-                <span className="w-12 font-bold text-lime">{y}</span>
-                <span className="text-sm">{t}</span>
+              [2026, "Survey profile included in the Super Sapein prototype"],
+              [2026, `Reported expertise: ${a.expertise.join(" · ")}`],
+              [
+                2026,
+                a.city === "Not specified"
+                  ? "Location not specified in survey"
+                  : `Reported location: ${a.city}, ${a.state}`,
+              ],
+            ].map(([year, description]) => (
+              <div key={String(description)} className="flex gap-4">
+                <span className="w-12 font-bold text-lime">{year}</span>
+                <span className="text-sm">{description}</span>
               </div>
             ))}
           </Card>
