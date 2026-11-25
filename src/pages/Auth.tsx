@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { athletes, SPORTS } from "../data/mock";
 import { useStore } from "../store";
 import { Btn, Field, Photo } from "../components/ui";
+import { Brand } from "../components/Brand";
 const Wrap = ({
   t,
   sub,
@@ -15,8 +16,8 @@ const Wrap = ({
 }) => (
   <div className="grid min-h-screen place-items-center px-4">
     <div className="w-full max-w-sm">
-      <Link to="/" className="text-lg font-extrabold text-lime">
-        SUPER SAPIEN
+      <Link to="/" aria-label="SUPER SAPIEN home">
+        <Brand />
       </Link>
       <h1 className="mt-6 text-3xl font-extrabold">{t}</h1>
       <p className="mt-1 text-sm text-mute">{sub}</p>

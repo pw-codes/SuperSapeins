@@ -9,6 +9,7 @@ import {
 } from "../data/mock";
 import { Btn, Card, Counter, Photo, Reveal, Demo } from "../components/ui";
 import { AthleteCard } from "./Discover";
+import { Brand } from "../components/Brand";
 const nav = [
   ["Discover", "/app/discover"],
   ["Talents", "/app/discover"],
@@ -20,11 +21,8 @@ function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-bg/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3 md:px-8">
-        <Link
-          to="/"
-          className="text-lg font-extrabold tracking-tight text-lime"
-        >
-          SUPER SAPIEN
+        <Link to="/" aria-label="SUPER SAPIEN home">
+          <Brand />
         </Link>
         <nav className="hidden gap-5 text-sm text-mute md:flex">
           {nav.map(([l, t]) => (
@@ -50,13 +48,7 @@ function Foot() {
     <footer className="mt-24 border-t border-line bg-bg2 py-10">
       <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-6 px-4 text-sm text-mute md:px-8">
         <div>
-          <p className="font-extrabold text-lime">SUPER SAPIEN</p>
-          <p className="mt-1">
-            Discover Indian Talent. Track Performance. Shape the Future.
-          </p>
-          <p className="mt-2 text-xs">
-            Prototype with fictional Indian demo data.
-          </p>
+          <Brand />
         </div>
         <div className="flex gap-5">
           {[
